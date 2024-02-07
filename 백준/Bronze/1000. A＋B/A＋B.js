@@ -1,20 +1,7 @@
-const readline = require("readline");
+const fs = require('fs');
+const inputData = fs.readFileSync(0, 'utf8').toString().split(' ');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
+const A = parseInt(inputData[0]);
+const B = parseInt(inputData[1]);
 
-let input = [];
-let sum = 0;
-
-rl.on("line", (line)=> {
-    input.push(...line.split(' ').map(e => parseInt(e)));
-});
-
-
-rl.on('close',()=>{
-    sum = input.reduce((acc, cur) => acc + cur, 0);
-    console.log(sum);
-    process.exit();
-});
+console.log(A+B);
