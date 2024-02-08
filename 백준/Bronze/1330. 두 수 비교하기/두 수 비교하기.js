@@ -1,8 +1,7 @@
 const fs = require("fs");
-const input = fs.readFileSync(0).toString().split(" ");
+const input = fs.readFileSync(0).toString().split(" ").map(Number);
 
-const A = parseInt(input[0]);
-const B = parseInt(input[1]);
+const [A, B] = input;
 
 if(A > B){
     console.log(">");
