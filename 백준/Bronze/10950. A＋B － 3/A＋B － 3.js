@@ -5,6 +5,5 @@ const number = Number(input[0]);
 
 for(let i = 1 ; i <= number; i++){
     const AB = input[i].split(" ").map(Number);
-    const [A,B] = AB;
-    console.log(A+B);
+    console.log(AB[0]+AB[1]);
 }
