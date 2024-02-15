@@ -1,12 +1,5 @@
 const fs = require("fs");
-const input = parseInt(fs.readFileSync(0).toString().trim());
+const input = +fs.readFileSync("/dev/stdin").toString().trim();
 
-let nums = [3]; 
-for (let i = 1; i <= 15; i++) {
-    nums.push(2 * nums[i - 1] - 1); 
-}
-
-const indexAdjusted = input - 1; 
-const result = Math.pow(nums[indexAdjusted], 2); 
-
+const result = (2 ** input + 1) ** 2;
 console.log(result);
