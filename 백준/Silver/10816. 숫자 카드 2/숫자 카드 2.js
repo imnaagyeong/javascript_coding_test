@@ -1,18 +1,20 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split("\n");
-const cards = input[1].split(" ").map(Number);
-const targets = input[3].split(" ").map(Number);
-const nums = {};
+const havecards = input[1].split(" ").map(Number);
+const matchcards = input[3].split(" ").map(Number);
 let str = '';
-for(let i = 0 ; i < cards.length ; i++){
-    if(nums[cards[i]] === undefined){
-        nums[cards[i]] = 1;
-    }else if(nums[cards[i]] >= 1)
-    {
-        nums[cards[i]] += 1;
+let map = new Map();
+
+for( i of havecards){
+    if(map.has(i)){map.set(i, map.get(i) + 1);}
+    else{ map.set(i , 1);}
+}
+
+for(j of matchcards){
+    if(map.has(j)){
+        str += map.get(j) + " ";
     }
+    else{str += "0 ";}
 }
-for(let i = 0 ; i < targets.length ; i++){
-    str += (nums[targets[i]]===undefined ? 0 + " " : nums[targets[i]] + " ")
-}
+
 console.log(str);
