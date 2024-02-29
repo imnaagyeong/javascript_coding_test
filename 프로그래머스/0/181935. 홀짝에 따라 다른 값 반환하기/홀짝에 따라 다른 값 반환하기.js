@@ -1,14 +1,6 @@
 function solution(n) {
-    let i = n % 2 === 0 ? 2 : 1;
-    let sum = 0;
-    for( ; i <= n ; i += 2){
-        if(n % 2 === 0){
-            sum += Math.pow(i,2);
-        }
-        else{
-            sum += i;
-        }
-        
-    }
-    return sum;
+    if(n%2===1)
+      return  (n+1)/2*((n + 1)/2) ;
+    else
+      return   n*(n+1)*(n+2)/6;
 }
