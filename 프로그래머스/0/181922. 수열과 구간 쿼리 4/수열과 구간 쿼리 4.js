@@ -1,13 +1,7 @@
 function solution(arr, queries) {
-    for(let i = 0; i < queries.length; i++){
-        const [s, e, k] = queries[i];
-        
-        for(let j = s; j <= e; j++){
-            if(j % k === 0){
-                arr[j] += 1;
-            }
-        }
-    }
-    
+    queries.map(([s,e,k]) => {
+        const subarr = arr.slice(s, e+1).map((e, i) => k % i === 0 ? e+1 : e)
+        arr.splice(s,e-s+1, ...subarr);
+        })
     return arr;
 }
